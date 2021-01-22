@@ -1,0 +1,145 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* .rotate {
+    transform: rotate(270deg);
+} */
+
+#tout {
+    display: flex;
+}
+
+#left {
+    width: 20%;
+    padding-right: 80px;
+    padding-left: 80px;
+    border-right: solid 1px grey;
+}
+
+#right {
+    width: 70%;
+    margin-left: 50px;
+}
+
+h1 {
+    padding-bottom: 50px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+#ligne1, #ligne2, #ligne3, #ligne4{
+    display: flex;
+    border: solid black 2px;
+    height: 100px;
+    width: 100px;
+    transform: rotate(270deg);
+    flex-direction: column;
+    margin-left: 35px;
+    justify-content: space-around;
+}
+
+#textarea {
+    font-family: verdana;
+}
+
+#ligne0 {
+    width: 135px;
+    height: 100px;
+    border: solid 2px black;
+    display: flex;
+    flex-direction: column;
+}
+
+#ligne5, #ligne6, #ligne7, #ligne8{
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+    margin-left: 35px;
+    border: solid black 2px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.ligne {
+    height: 100px;
+    width: 100px;
+    border: solid 2px black;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 35px;
+    margin-top: 10px;
+}
+
+.petitCarre {
+    width: 23px;
+    height: 23px;
+    border: solid 1px black;
+    background-color: white;
+}
+
+.petitCarre input {
+    width: 23px;
+    height: 23px;
+    border: none;
+}
+
+.petitCarreNon {
+    width: 23px;
+    height: 23px;
+    border: solid 1px black;
+    background-color: red;
+}
+
+.petitCarreOui {
+    width: 23px;
+    height: 23px;
+    border: solid 1px black;
+    background-color: green;
+}
+
+#ligne1 p, #ligne2 p, #ligne3 p, #ligne4 p {
+    font-size: 15px;
+    padding: 0 10px;
+}
+
+#ligne5 p, #ligne6 p, #ligne7 p, #ligne8 p {
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+#ligneHaut {
+    display: flex;
+    margin-top: 35px;
+}
+
+#ligneHaut2, #ligneHaut3, #ligneHaut4, #ligneHaut5 {
+    display: flex;
+}
+
+table {
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+
+thead th {
+    background-color: black;
+    color: white;
+}
+
+th {
+    width: 100px;
+    border: 1px solid black;
+    height: 40px;
+}
+
+th input {
+    border: none;
+    text-align: center;
+    height: 40px;
+    font-size: 20px;
+}
