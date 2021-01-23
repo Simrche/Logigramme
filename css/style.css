@@ -79,12 +79,17 @@ h1 {
     height: 23px;
     border: solid 1px black;
     background-color: white;
+    text-align: center;
+    font-family: verdana;
 }
 
-.petitCarre input {
-    width: 23px;
-    height: 23px;
-    border: none;
+.petitCarre5 {
+    width: 18px;
+    height: 18px;
+    border: solid 1px black;
+    background-color: white;
+    text-align: center;
+    font-family: verdana;
 }
 
 .petitCarreNon {
@@ -92,6 +97,17 @@ h1 {
     height: 23px;
     border: solid 1px black;
     background-color: red;
+    text-align: center;
+    font-family: verdana;
+}
+
+.petitCarreNon5 {
+    width: 18px;
+    height: 18px;
+    border: solid 1px black;
+    background-color: red;
+    text-align: center;
+    font-family: verdana;
 }
 
 .petitCarreOui {
@@ -99,6 +115,17 @@ h1 {
     height: 23px;
     border: solid 1px black;
     background-color: green;
+    text-align: center;
+    font-family: verdana;
+}
+
+.petitCarreOui5 {
+    width: 18px;
+    height: 18px;
+    border: solid 1px black;
+    background-color: green;
+    text-align: center;
+    font-family: verdana;
 }
 
 #ligne1 p, #ligne2 p, #ligne3 p, #ligne4 p {
@@ -142,4 +169,49 @@ th input {
     text-align: center;
     height: 40px;
     font-size: 20px;
+}
+
+#divVerif {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+#verif {
+    width: 300px;
+    height: 50px;
+    margin-top: 50px;
+}
+
+#overlay {
+    position: absolute;
+    background-color: grey;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+#choisir {
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    background-color: black;
+    z-index: 2;
+    top: 25%;
+    left: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#choisir h1 {
+    color: white;
+    font-size: 40px;
+    font-family: verdana;
+}
+
+#choisir input {
+    width: 150px;
+    height: 50px;
 }

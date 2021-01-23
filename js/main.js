@@ -2,7 +2,7 @@ const enquete = [
     {
         title : "Le bar à chat",
         largeur : 4,
-        longueur : 4,
+        largeurPetitCarre : 4,
         indices : [
             "Tornado adore se mettre en boule au niveau du dos des clients. Il n'est pas le chat préféré de l'ami qui a commandé un café.",
             "Alan a reçu la visite d'un chat de plus que Lucie, et deux de moins que l'ami(e) qui a un faible pour Pitou",
@@ -39,6 +39,8 @@ const enquete = [
 
     {
         title : "La main dans le sac",
+        largeur : 3,
+        largeurPetitCarre : 5,
         indices : [
             "Le pop-corn sucré a été commandé en même temps que les biscuits, mais pas par Océane.",
             "Le paquet d'Alexis contenait cent grammes de plus que celui de Mathilde, et cinquante de moins que celui au beurre.",
@@ -70,54 +72,213 @@ const enquete = [
     },
 ]
 
-$('#salut').append('<h1>' + enquete[0].title + "</h1>")
-$('#salut')
+function enquete1() {
+    // AFFICHAGE DU TITRE
+    $('#salut').append('<h1>' + enquete[0].title + "</h1>")
 
-for (let index = 0; index < enquete[0].indices.length; index++) {
-    $('#salut').append('<p>' + (index+1) +'. '+enquete[0].indices[index] + "</p><br>")   
+    // AFFICHAGE DES INDICES 
+    for (let index = 0; index < enquete[0].indices.length; index++) {
+        $('#salut').append('<p>' + (index+1) +'. '+enquete[0].indices[index] + "</p><br>")   
+    }
+
+    // AFFICHAGE DES OPTIONS
+    for (let index = 0; index < enquete[0].elements[0].list.length; index++) {
+        $('#ligne1').append('<p class="rotate">' + enquete[0].elements[0].list[index] + '</p>')
+    }
+
+    for (let index = 0; index < enquete[0].elements[1].list.length; index++) {
+        $('#ligne2').append('<p class="rotate">' + enquete[0].elements[1].list[index] + '</p>')
+    }
+
+    for (let index = 0; index < enquete[0].elements[2].list.length; index++) {
+        $('#ligne3').append('<p class="rotate">' + enquete[0].elements[2].list[index] + '</p>')
+    }
+
+    for (let index = 0; index < enquete[0].elements[3].list.length; index++) {
+        $('#ligne4').append('<p class="rotate">' + enquete[0].elements[3].list[index] + '</p>')
+    }
+
+    for (let index = 0; index < enquete[0].elements[4].list.length; index++) {
+        $('#ligne5').append('<p>' + enquete[0].elements[4].list[index] + '</p>')
+    }
+
+    for (let index = 0; index < enquete[0].elements[3].list.length; index++) {
+        $('#ligne6').append('<p>' + enquete[0].elements[3].list[index] + '</p>')
+    }
+
+    for (let index = 0; index < enquete[0].elements[2].list.length; index++) {
+        $('#ligne7').append('<p>' + enquete[0].elements[2].list[index] + '</p>')
+    }
+
+    for (let index = 0; index < enquete[0].elements[1].list.length; index++) {
+        $('#ligne8').append('<p>' + enquete[0].elements[1].list[index] + '</p>')
+    }
 }
 
-for (let index = 0; index < enquete[0].elements[0].list.length; index++) {
-    $('#ligne1').append('<p class="rotate">' + enquete[0].elements[0].list[index] + '</p>')
+function enquete2() {
+    // AFFICHAGE DU TITRE
+    $('#salut').append('<h1>' + enquete[1].title + "</h1>")
+
+    // AFFICHAGE DES INDICES
+    for (let index = 0; index < enquete[1].indices.length; index++) {
+        $('#salut').append('<p>' + (index+1) +'. '+enquete[1].indices[index] + "</p><br>")   
+    }
+
+    // AFFICHAGE DES OPTIONS
+    for (let index = 0; index < enquete[1].elements[1].list.length; index++) {
+        $('#ligne1').append('<p class="rotate">' + enquete[1].elements[1].list[index] + '</p>')
+    }
+
+    for (let index = 0; index < enquete[1].elements[2].list.length; index++) {
+        $('#ligne2').append('<p class="rotate">' + enquete[1].elements[2].list[index] + '</p>')
+    }
+
+    for (let index = 0; index < enquete[1].elements[3].list.length; index++) {
+        $('#ligne3').append('<p class="rotate">' + enquete[1].elements[3].list[index] + '</p>')
+    }
+
+    for (let index = 0; index < enquete[1].elements[0].list.length; index++) {
+        $('#ligne5').append('<p>' + enquete[1].elements[0].list[index] + '</p>')
+    }
+
+    for (let index = 0; index < enquete[1].elements[3].list.length; index++) {
+        $('#ligne6').append('<p>' + enquete[1].elements[3].list[index] + '</p>')
+    }
+
+    for (let index = 0; index < enquete[1].elements[2].list.length; index++) {
+        $('#ligne7').append('<p>' + enquete[1].elements[2].list[index] + '</p>')
+    }
 }
 
-for (let index = 0; index < enquete[0].elements[1].list.length; index++) {
-    $('#ligne2').append('<p class="rotate">' + enquete[0].elements[1].list[index] + '</p>')
+// SELECTION DE L'ENQUETE
+var numeroEnquete = 0
+
+// FONCTION DE LA CREATION D'UNE ENQUETE
+function NouveauCarre(numeroEnquete) {
+    let numero = numeroEnquete
+    let largeur = enquete[numero].largeur
+    for (let index = 0; index < largeur; index++) {
+        let ligne = document.getElementById('ligneHaut2')
+        let newTab = document.createElement('div')
+        ligne.append(newTab)
+        newTab.className = 'ligne'
+    }
+    for (let index = 0; index < (largeur-1); index++) {
+        let ligne = document.getElementById('ligneHaut3')
+        let newTab = document.createElement('div')
+        ligne.append(newTab)
+        newTab.className = 'ligne'
+    }
+    for (let index = 0; index < (largeur-2); index++) {
+        let ligne = document.getElementById('ligneHaut4')
+        let newTab = document.createElement('div')
+        ligne.append(newTab)
+        newTab.className = 'ligne'
+    }
+    for (let index = 0; index < (largeur-3); index++) {
+        let ligne = document.getElementById('ligneHaut5')
+        let newTab = document.createElement('div')
+        ligne.append(newTab)
+        newTab.className = 'ligne'
+    }
+
+    if(numeroEnquete === 0) {
+        enquete1()
+    } else {
+        enquete2()
+    }
 }
 
-for (let index = 0; index < enquete[0].elements[2].list.length; index++) {
-    $('#ligne3').append('<p class="rotate">' + enquete[0].elements[2].list[index] + '</p>')
-}
+// CHANGEMENT DE COULEURS DES PETITS CARREE
+setInterval(function(){
+    $('.petitCarre').click(function(){
+        $(this).removeClass('petitCarre'),
+        $(this).addClass('petitCarreNon'),
+        $(this).html('N')
+    })
 
-for (let index = 0; index < enquete[0].elements[3].list.length; index++) {
-    $('#ligne4').append('<p class="rotate">' + enquete[0].elements[3].list[index] + '</p>')
-}
-
-for (let index = 0; index < enquete[0].elements[4].list.length; index++) {
-    $('#ligne5').append('<p>' + enquete[0].elements[4].list[index] + '</p>')
-}
-
-for (let index = 0; index < enquete[0].elements[3].list.length; index++) {
-    $('#ligne6').append('<p>' + enquete[0].elements[3].list[index] + '</p>')
-}
-
-for (let index = 0; index < enquete[0].elements[2].list.length; index++) {
-    $('#ligne7').append('<p>' + enquete[0].elements[2].list[index] + '</p>')
-}
-
-for (let index = 0; index < enquete[0].elements[1].list.length; index++) {
-    $('#ligne8').append('<p>' + enquete[0].elements[1].list[index] + '</p>')
-}
-
-$('.petitCarre').click(function() {
-    $(this).removeClass('petitCarre'),
-    $(this).addClass('petitCarreNon')
-    $('.petitCarreNon').click(function() {
+    $('.petitCarreNon').click(function(){
         $(this).removeClass('petitCarreNon'),
-        $(this).addClass('petitCarreOui')
-        $('.petitCarreOui').click(function() {
-            $(this).removeClass('petitCarreOui'),
-            $(this).addClass('petitCarre')
+        $(this).addClass('petitCarreOui'),
+        $(this).html('O')
+    })
+
+    $('.petitCarreOui').click(function(){
+        $(this).removeClass('petitCarreOui'),
+        $(this).addClass('petitCarre'),
+        $(this).html('')
+    })
+},100)
+
+setInterval(function(){
+    $('.petitCarre5').click(function(){
+        $(this).removeClass('petitCarre5'),
+        $(this).addClass('petitCarreNon5'),
+        $(this).html('N')
+    })
+
+    $('.petitCarreNon5').click(function(){
+        $(this).removeClass('petitCarreNon5'),
+        $(this).addClass('petitCarreOui5'),
+        $(this).html('O')
+    })
+
+    $('.petitCarreOui5').click(function(){
+        $(this).removeClass('petitCarreOui5'),
+        $(this).addClass('petitCarre5'),
+        $(this).html('')
+    })
+},100)
+
+// LANCEMENT DU JEU
+
+$('#1').click(function(){
+    numeroEnquete = 0;
+    $('#overlay').hide(),
+    $('#choisir').hide()
+    // ACTIVATION DE LA FONCTION DE CREATION D'ENQUETE
+    NouveauCarre(numeroEnquete)
+    // RAJOUT DES PETITES CASES DANS LES GRANDES CASES
+    setTimeout(function(){
+        $('.ligne').each(function() {
+            for (let index = 0; index < (enquete[numeroEnquete].largeurPetitCarre*enquete[numeroEnquete].largeurPetitCarre); index++) {
+                let carre = $(this)
+                let newDiv = document.createElement('div')
+                carre.append(newDiv)
+                newDiv.className = "petitCarre"
+            }
         })
-    })   
+    }, 10)
+    // LE TIMER
+    let depart = 0
+    setInterval(function(){
+        depart++
+        $('#temps').html(depart)
+    }, 1000)
+})
+
+$('#2').click(function(){
+    console.log('yo')
+    numeroEnquete = 1;
+    $('#overlay').hide(),
+    $('#choisir').hide()
+    // ACTIVATION DE LA FONCTION DE CREATION D'ENQUETE
+    NouveauCarre(numeroEnquete)
+    // RAJOUT DES PETITES CASES DANS LES GRANDES CASES
+    setTimeout(function(){
+        $('.ligne').each(function() {
+            for (let index = 0; index < 25; index++) {
+                let carre = $(this)
+                let newDiv = document.createElement('div')
+                carre.append(newDiv)
+                newDiv.className = "petitCarre5"
+            }
+        })
+    }, 10)
+    // LE TIMER
+    let depart = 0
+    setInterval(function(){
+        depart++
+        $('#temps').html(depart)
+    }, 1000)
 })
