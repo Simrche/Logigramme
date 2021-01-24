@@ -33,7 +33,7 @@ const enquete = [
             }
         ],
         goodAns : [
-            "A1","B4","C3","D2","E4","F3","G2","H1","I3","J2","K4","L1","M1","N2","O3","P4"
+            "1","6","11","16","18","24","25","31","35","38","44","45","49","54","59","64"
         ]
     },
 
@@ -150,8 +150,13 @@ function enquete2() {
     }
 }
 
+// CACHER
+$('#finDuJeu').hide()
+
 // SELECTION DE L'ENQUETE
 var numeroEnquete = 0
+var depart = 0
+var pseudo = ""
 
 // FONCTION DE LA CREATION D'UNE ENQUETE
 function NouveauCarre(numeroEnquete) {
@@ -232,53 +237,108 @@ setInterval(function(){
 
 // LANCEMENT DU JEU
 
+// CLIQUE SUR L'ENQUETE NUMERO 1
 $('#1').click(function(){
     numeroEnquete = 0;
+    pseudo = $('#pseudo').val()
+    $('#timer').append(pseudo)
     $('#overlay').hide(),
     $('#choisir').hide()
     // ACTIVATION DE LA FONCTION DE CREATION D'ENQUETE
     NouveauCarre(numeroEnquete)
     // RAJOUT DES PETITES CASES DANS LES GRANDES CASES
     setTimeout(function(){
+        let id = 1
         $('.ligne').each(function() {
             for (let index = 0; index < (enquete[numeroEnquete].largeurPetitCarre*enquete[numeroEnquete].largeurPetitCarre); index++) {
                 let carre = $(this)
                 let newDiv = document.createElement('div')
                 carre.append(newDiv)
-                newDiv.className = "petitCarre"
+                newDiv.className = "petitCarre " + id
+                id++
             }
         })
     }, 10)
     // LE TIMER
-    let depart = 0
-    setInterval(function(){
+    let leTemps = setInterval(function(){
         depart++
         $('#temps').html(depart)
     }, 1000)
+    $('#verif').click(function(){
+        clearInterval(leTemps)
+    })
+    // VERIFICATION QUE TOUTES LES CASES SONT REMPLIES
+    setInterval(function(){
+        let i = 1
+        $('#ligneHaut2 div div').each(function(){
+            if($(this).attr('class') === (i + " petitCarreNon") || $(this).attr('class') === (i + " petitCarreOui")){
+                i++
+                if(i > 64){
+                    $('#verif').attr("disabled", false);
+                } else {
+                    $('#verif').attr("disabled", true);
+                }
+            }
+        })
+    }, 100)
 })
 
+// CLIQUE SUR L'ENQUETE NUMERO 2
 $('#2').click(function(){
-    console.log('yo')
     numeroEnquete = 1;
+    pseudo = $('#pseudo').val()
+    $('#timer').append(pseudo)
     $('#overlay').hide(),
     $('#choisir').hide()
     // ACTIVATION DE LA FONCTION DE CREATION D'ENQUETE
     NouveauCarre(numeroEnquete)
     // RAJOUT DES PETITES CASES DANS LES GRANDES CASES
     setTimeout(function(){
+        let id = 1
         $('.ligne').each(function() {
-            for (let index = 0; index < 25; index++) {
+            for (let index = 0; index < (enquete[numeroEnquete].largeurPetitCarre*enquete[numeroEnquete].largeurPetitCarre); index++) {
                 let carre = $(this)
                 let newDiv = document.createElement('div')
                 carre.append(newDiv)
-                newDiv.className = "petitCarre5"
+                newDiv.className = "petitCarre5 " + id
+                id++
             }
         })
     }, 10)
     // LE TIMER
-    let depart = 0
-    setInterval(function(){
+    let leTemps = setInterval(function(){
         depart++
         $('#temps').html(depart)
     }, 1000)
+    $('#verif').click(function(){
+        clearInterval(leTemps)
+    })
+    // VERIFICATION QUE TOUTES LES CASES SONT REMPLIES
+    setInterval(function(){
+        let i = 1
+        $('#ligneHaut2 div div').each(function(){
+            if($(this).attr('class') === (i + " petitCarreNon5") || $(this).attr('class') === (i + " petitCarreOui5")){
+                i++
+                if(i > 75){
+                    $('#verif').attr("disabled", false);
+                } else {
+                    $('#verif').attr("disabled", true);
+                }
+            }
+        })
+    }, 100)
+})
+
+// CLIQUE SUR LE BOUTON FIN DU JEU
+$('#verif').click(function(){
+    enquete[numeroEnquete].goodAns.forEach(function(element){
+        if($('#ligneHaut2 div div').attr('class') === (element + ' petitCarreOui')) {
+            console.log('bravo')
+        } else {
+            depart += 30
+        }
+    });
+    $('#overlay').show(),
+    $('#finDuJeu').show(),
+    $('#textFin').html(pseudo + " | Votre score : " + depart)
 })

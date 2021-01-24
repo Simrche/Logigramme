@@ -9,14 +9,24 @@
 
     <body>
 
-    <!-- POP UP CHOISIR UNE ENQUETES -->
+    <!-- POP UP CHOISIR UNE ENQUETE -->
     <div id="overlay"></div>
     <div id="choisir">
         <h1>Logigramme</h1>
         <div>
-            <input type="submit" value="Le bar à chat" id="1">
-            <input type="submit" value="La main dans le sac" id="2">
+            <h3>Pseudo :</h3>
+            <input type="text" id="pseudo">
+        </div>
+        <div>
+            <button id="1" value="0">Le bar à chat</button>
+            <button id="2" value='1'>La main dans le sac</button>
         </div>     
+    </div>
+
+    <!-- POP UP FIN DU JEU -->
+    <div id="finDuJeu">
+        <h2>FIN DU JEU</h2>
+        <p id="textFin"></p>
     </div>
 
 
@@ -114,9 +124,9 @@
         </table>
          -->
 
-        <p id="timer">TEMPS : <span id="temps"></span> secondes</p>
+        <p id="timer">TEMPS : <span id="temps"></span> secondes | Pseudo : </p>
         <div id="divVerif">
-            <button id="verif">Vérifiez</button>
+            <button id="verif" disabled>Vérifiez</button>
         </div>
         
 
